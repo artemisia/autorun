@@ -20,6 +20,8 @@ public class AccessibilityNormalSample extends Activity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accessibility_normal_sample);
         initViews();
+
+        AccessibilityLog.printLog("AccessibilityNormalSample.create");
     }
 
     private void initViews() {
@@ -43,9 +45,28 @@ public class AccessibilityNormalSample extends Activity implements View.OnClickL
             @Override
             public void run() {
 //                simulationClickByText();
-                simulationClickById();
+                //simulationClickById();
+                //performBackClick();
             }
-        }, 2000);
+        }, 5000);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                simulationClickByText();
+                //simulationClickById();
+                //performBackClick();
+            }
+        }, 5000);
+    }
+
+    private void performBackClick() {
+        AccessibilityLog.printLog("performBackClick");
+        AccessibilityOperator2.getInstance().performBackClick(1000);
     }
 
     private void simulationClickByText() {

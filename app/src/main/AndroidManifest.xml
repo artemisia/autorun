@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.accessibility">
-
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/tutu"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -27,7 +28,6 @@
         <activity android:name=".AccessibilityNormalSample"
             android:process=":BackgroundService"/>
 
-        // 注册辅助功能服务
         <service android:name=".AccessibilitySampleService"
             android:label="@string/accessibility_tip"
             android:exported="true"
@@ -36,11 +36,12 @@
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
-            // 通过xml文件完成辅助功能相关配置，也可以在onServiceConnected中动态配置
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_config"/>
         </service>
+        <service android:name=".MusicPlayerService"></service>
     </application>
 
 </manifest>

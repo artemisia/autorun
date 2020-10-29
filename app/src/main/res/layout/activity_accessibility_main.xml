@@ -18,7 +18,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
     <Button
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/toStop"
+        android:text="停止"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
+
+    <Button
+        android:visibility="gone"
         android:id="@+id/accessibility_find_and_click"
         android:layout_marginTop="20dp"
         android:text="模拟辅助功能点击View"
